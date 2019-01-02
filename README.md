@@ -1,44 +1,43 @@
-# darknet_mnist
+# DarkNet Classifier LeNet MNIST
 
-Training LeNet for MNIST dataset on darknet.
+LeNet Training & Inference for MNIST dataset on DarkNet.
 
-# Requirements
+## Requirements
 
-- darknet
-- opencv
-- numpy
+- [DarkNet](https://github.com/pjreddie/darknet/tree/61c9d02ec461e30d55762ec7669d6a1d3c356fb2) built
+- `pip install opencv-python`
+- `pip install numpy`
 
-# Download & Convert MNIST data
+## Download & Convert MNIST data
 
 ```
 python download_and_convert_mnist.py
 ```
 
-# Set it up for DarkNet
+## Set it up for DarkNet
 1. Copy the contents of `cfg` folder in this repo to `darknet/cfg`
 2. Move `mnist_images` folder to `darknet/data/` folder
-3. `cd darknet/data/mnist_images`
-4. `find `pwd`/train -name \*.png > train.list`
-5. `find `pwd`/test -name \*.png > test.list`
-6. `cd ../..`
+3. Then,
+```
+cd darknet/data/mnist_images
+find `pwd`/train -name \*.png > train.list
+find `pwd`/test -name \*.png > test.list
+cd ../..
+```
 
-
-# Train
-
+## Train
 ```
 ./darknet classifier train cfg/mnist.data cfg/mnist_lenet.cfg
 ```
 
-# Validate
-
+## Validate
 ```
 ./darknet classifier valid cfg/mnist.data cfg/mnist_lenet.cfg backup/mnist_lenet.backup
 ```
 
-# Predict
-
+## Predict
 ```
-/darknet classifier predict cfg/mnist.data cfg/mnist_lenet.cfg ./mnist_lenet.weights data/mnist_images/test/<image_name>.png
+./darknet classifier predict cfg/mnist.data cfg/mnist_lenet.cfg backup/mnist_lenet.weights data/mnist_images/test/<image_name>.png
 ```
 
 ## Credits
