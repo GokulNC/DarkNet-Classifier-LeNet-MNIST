@@ -1,0 +1,6 @@
+classes=10
+train  = data/mnist_images/train.list
+valid  = data/mnist_images/test.list
+labels = data/mnist_images/labels.txt
+backup = backup/
+top=2

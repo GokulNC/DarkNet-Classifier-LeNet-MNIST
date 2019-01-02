@@ -1,3 +1,8 @@
+# My files to ignore
+mnist_images/
+t10k*
+train-*
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
